@@ -42,8 +42,15 @@
         <el-input v-model="$store.state.personinfo[$store.state.datacount].name"></el-input>
       </el-form-item>
       <el-form-item label="性别:" prop="sex">
-        <el-input v-model="$store.state.personinfo[$store.state.datacount].sex"></el-input>
+        <el-radio-group v-model="$store.state.personinfo[$store.state.datacount].sex">
+          <el-radio label="男"></el-radio>
+          <el-radio label="女"></el-radio>
+          <el-radio label="第三性别"></el-radio>
+        </el-radio-group>
       </el-form-item>
+      <!-- <el-form-item label="性别:" prop="sex">
+        <el-input v-model="$store.state.personinfo[$store.state.datacount].sex"></el-input>
+      </el-form-item>-->
       <el-form-item label="年龄:" prop="age">
         <el-input v-model.number="$store.state.personinfo[$store.state.datacount].age"></el-input>
       </el-form-item>
@@ -180,11 +187,11 @@
   </div>
 </template>
 <script>
+import { deflate } from "zlib";
 import HelloWorld from "./HelloWorld.vue";
 import card1 from "./card1.vue";
 import card2 from "./card2.vue";
 import perinfo from "./personinfo.vue";
-import { deflate } from "zlib";
 
 export default {
   name: "tool",
@@ -208,7 +215,12 @@ export default {
       rules: {
         name: [
           { required: true, message: "请输入姓名", trigger: "blur" },
-          { min: 2, max: 9, message: "长度在 2 到 9 个字符", trigger: "blur" }
+          {
+            min: 2,
+            max: 9,
+            message: "长度在 2 到 9 个字符",
+            trigger: "blur"
+          }
         ],
         sex: [{ required: true, message: "性别不能为空" }],
         age: [
@@ -266,7 +278,7 @@ export default {
               break;
             case "删除":
               break;
-              deflate: break;
+              break;
           }
           this.$store.commit("showtool");
         } else {

@@ -29,10 +29,10 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
-    data: Object
-  }
+    data: Object,
+  },
 };
 </script>
 

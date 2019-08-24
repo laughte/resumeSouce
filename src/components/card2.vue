@@ -29,13 +29,14 @@
 </template>
 
 <script>
-import { constants } from "crypto";
-import { debuglog } from "util";
+import { constants } from 'crypto';
+import { debuglog } from 'util';
+
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
     msg: String,
-    data: Object
+    data: Object,
   },
   data() {
     return {};
@@ -43,22 +44,22 @@ export default {
   methods: {
     setprogress(e) {
       let n = 0;
-      let sn = setInterval(() => {
+      const sn = setInterval(() => {
         n += 1;
         if (n === e.Proficiency) {
           e.init = e.Proficiency;
           clearInterval(sn);
         }
       }, 0);
-    }
+    },
   },
   mounted() {
     setTimeout(() => {
-      this.data.skill.forEach(element => {
+      this.data.skill.forEach((element) => {
         this.setprogress(element);
       });
     }, 500);
-  }
+  },
 };
 </script>
 

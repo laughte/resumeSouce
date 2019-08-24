@@ -53,55 +53,56 @@
 </template>
 
 <script>
-import tool from "./components/tool.vue";
-import HelloWorld from "./components/HelloWorld.vue";
-import card1 from "./components/card1.vue";
-import card2 from "./components/card2.vue";
-import perinfo from "./components/personinfo.vue";
+import tool from './components/tool.vue';
+import HelloWorld from './components/HelloWorld.vue';
+import card1 from './components/card1.vue';
+import card2 from './components/card2.vue';
+import perinfo from './components/personinfo.vue';
+
 export default {
-  name: "app",
+  name: 'app',
   components: {
     HelloWorld,
     card1,
     card2,
     perinfo,
-    tool
+    tool,
   },
   data() {
     return {
       cardshowflag: true,
-      peranimate: { true: " jackInTheBox", false: "rollOut" },
-      isblur: { true: "bluractive", false: "noblur" }
+      peranimate: { true: ' jackInTheBox', false: 'rollOut' },
+      isblur: { true: 'bluractive', false: 'noblur' },
     };
   },
   methods: {
     showtool() {
-      this.$store.commit({ type: "showtool", title: "立即创建" });
+      this.$store.commit({ type: 'showtool', title: '立即创建' });
     },
     changeflag() {
       this.cardshowflag = true;
     },
     changemin(i) {
       // this.$refs.perappli[i].classList.add("changemax");
-    }
+    },
   },
   computed: {
     linsen() {
       return this.$store.state.personinfo;
-    }
+    },
   },
   watch: {
-    linsen: function(n, o) {
-      this.$store.commit("saveStorageData");
-    }
+    linsen(n, o) {
+      this.$store.commit('saveStorageData');
+    },
   },
 
   mounted() {
     this.changeflag();
   },
   created() {
-    this.$store.commit("readStoragedata");
-  }
+    this.$store.commit('readStoragedata');
+  },
 };
 </script>
 

@@ -16,17 +16,17 @@
       {{data.email}}
     </p>
   </div>
-</template>  
+</template>
 
 
 <script>
 export default {
-  name: "personinfo",
+  name: 'personinfo',
   props: { data: Object, n: Number },
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 };
 </script>
 
