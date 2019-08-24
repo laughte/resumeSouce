@@ -187,8 +187,9 @@ div.arstyle {
   -moz-osx-font-smoothing: grayscale;
   padding: 2vh;
   margin: auto;
-  margin-top: 2.5vh;
+  margin-top: 10px;
   width: 640px;
+  min-width: 640px;
   background: linear-gradient(-150deg, transparent 1.5em, white 0%, white 100%);
   border-radius: 0.5em;
   div.mainpage {

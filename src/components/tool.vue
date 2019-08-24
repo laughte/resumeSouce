@@ -2,20 +2,23 @@
 .tool {
   width: 100%;
   height: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   /* background: pink; */
 }
 .el-form {
   width: 450px;
-  position: absolute;
+  /* position: absolute; */
   /* background: rgb(233, 236, 236); */
 }
 .leftside {
-  top: 0;
-  left: 5px;
+  /* top: 0; */
+  margin-left: 5px;
 }
 .rightside {
-  top: 0;
-  right: 10px;
+  /* top: 10px; */
+  margin-right: 10px;
 }
 .bluractive {
   filter: blur(5px);
@@ -37,6 +40,9 @@
       <h2>基本信息</h2>
       <el-form-item label="姓名:" prop="name">
         <el-input v-model="$store.state.personinfo[$store.state.datacount].name"></el-input>
+      </el-form-item>
+      <el-form-item label="性别:" prop="sex">
+        <el-input v-model="$store.state.personinfo[$store.state.datacount].sex"></el-input>
       </el-form-item>
       <el-form-item label="年龄:" prop="age">
         <el-input v-model.number="$store.state.personinfo[$store.state.datacount].age"></el-input>
@@ -204,6 +210,7 @@ export default {
           { required: true, message: "请输入姓名", trigger: "blur" },
           { min: 2, max: 9, message: "长度在 2 到 9 个字符", trigger: "blur" }
         ],
+        sex: [{ required: true, message: "性别不能为空" }],
         age: [
           { required: true, message: "年龄不能为空" },
           { type: "number", message: "年龄必须为数字值" }
@@ -274,7 +281,7 @@ export default {
           this.$store.commit("showtool", { title: "取消创建" });
           break;
         case "确认修改":
-          this.$store.commit("showtool");
+          this.$store.commit("showtool", { title: "取消修改" });
       }
     },
     addworkitem() {

@@ -68,6 +68,7 @@ export default {
   position: relative;
   // background: #64e2c2;
   width: 338.8px;
+  // width: 53%;
 }
 
 .liststyle {

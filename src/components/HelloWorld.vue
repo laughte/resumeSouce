@@ -1,15 +1,15 @@
 <template>
   <div class="hello">
     <el-tooltip class="item" effect="dark" content="点击删除" placement="bottom">
-      <div class="sanjiaoxing" @click="deleteitem(n)"></div>
+      <div v-show="$store.state.setflag" class="sanjiaoxing" @click="deleteitem(n)"></div>
     </el-tooltip>
     <el-tooltip class="item" effect="dark" content="点击修改内容" placement="bottom">
-      <i class="el-icon-setting" @click="modifyitem(n)"></i>
+      <i class="el-icon-setting" v-show="$store.state.setflag" @click="modifyitem(n)"></i>
     </el-tooltip>
 
     <p class="times" v-text="data.time"></p>
     <!-- <h2 @mouseover="$store.commit('showperinfofunc',n)">{{data.name}}</h2> -->
-    <el-tooltip class="item" effect="dark" content="点击查看联系方式" placement="bottom">
+    <el-tooltip class="item" effect="dark" content="点击查看详细信息" placement="bottom">
       <h2 @click="data.perinfoflag =!data.perinfoflag">{{data.name}}</h2>
     </el-tooltip>
 
@@ -80,6 +80,11 @@ export default {
 <style scoped lang="scss">
 .hello {
   // overflow: hidden;
+  background: #ec4848;
+  // border-radius: 0.5em;
+  position: relative;
+  width: 100%;
+  height: 100px;
   .el-icon-setting {
     opacity: 0.1;
     position: absolute;
@@ -110,12 +115,6 @@ export default {
 
     // border-right: 50px solid purple;
   }
-  background: #ec4848;
-
-  // border-radius: 0.5em;
-  position: relative;
-  width: 100%;
-  height: 10vh;
   h2 {
     cursor: pointer;
     display: inline-block;

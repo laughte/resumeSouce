@@ -43,6 +43,7 @@ export default {
   position: relative;
   // background: #64e2c2;
   width: 263.5px;
+  // width: 41%;
   height: auto;
 
   // &:hover {

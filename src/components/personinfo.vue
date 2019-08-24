@@ -1,9 +1,14 @@
 <template>
   <div class="per">
     <i @click="data.perinfoflag =!data.perinfoflag" class="el-icon-circle-close"></i>
-    <h2>联系方式</h2>
+    <h2>个人详细信息</h2>
     <hr />
     <p>
+      <b>性别:</b>
+      {{data.sex }} &nbsp;&nbsp;
+      <b>年龄:</b>
+      {{data.age}}
+      <br />
       <b>tel:</b>
       {{data.tel}}
       <br />
